@@ -74,38 +74,38 @@ You can try other environments easily.
 from env.carla import make_carla
 env = make_carla(
     map_name=args.task_name,
-    client_port=29000,
-    npc_vehicles_port=29008,
-    modalities = ["rgb",],
-    frame_stack=3,
-    weather = 'clear_noon',
-    action_repeat=args.action_repeat,
-    seed=args.seed
+    client_port=29000,  
+    npc_vehicles_port=29008,  
+    modalities = ["rgb",],  
+    frame_stack=3,  
+    weather = 'clear_noon',  
+    action_repeat=args.action_repeat,  
+    seed=args.seed  
 )
 
 
 ## Robosuite Benchmark
-from env.robosuite import make_robosuite
-env = make_robosuite(
-    task=args.task_name,
-    mode="train",
-    scene_id=0,
-)
+from env.robosuite import make_robosuite  
+env = make_robosuite(  
+    task=args.task_name,  
+    mode="train",  
+    scene_id=0,  
+)  
 
 ## DrawerWorld Benchmark
-from env.metaworld_wrappers import make_pad_env
-env = make_pad_env(
-        domain_name=args.domain_name,
-        task_name=args.task_name,
-        seed=args.seed,
-        episode_length=args.episode_length,
-        action_repeat=args.action_repeat,
-        mode='train',
-        action_factor=args.action_factor,
-        moving_average_denoise=args.moving_average_denoise,
-        moving_average_denoise_factor=args.moving_average_denoise_factor,
-        moving_average_denoise_alpha=args.moving_average_denoise_alpha,
-        exponential_moving_average=args.exponential_moving_average
+from env.metaworld_wrappers import make_pad_env  
+env = make_pad_env(  
+        domain_name=args.domain_name,  
+        task_name=args.task_name,  
+        seed=args.seed,  
+        episode_length=args.episode_length,  
+        action_repeat=args.action_repeat,  
+        mode='train',  
+        action_factor=args.action_factor,  
+        moving_average_denoise=args.moving_average_denoise,  
+        moving_average_denoise_factor=args.moving_average_denoise_factor,  
+        moving_average_denoise_alpha=args.moving_average_denoise_alpha,  
+        exponential_moving_average=args.exponential_moving_average  
 )
 
 
