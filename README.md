@@ -8,22 +8,30 @@ We assume that you have access to a GPU with CUDA >=9.2 support. All dependencie
 
 ## Install MuJoCo
 Download the MuJoCo version 2.1 binaries for Linux or OSX.
+
 Extract the downloaded mujoco210 directory into \~/.mujoco/mujoco210.
+
 If you want to specify a nonstandard location for the package, use the env variable MUJOCO_PY_MUJOCO_PATH.
 pip3 install -U 'mujoco-py<2.2,>=2.1'
 
 
 ## Install DMControl
 conda env create -f setup/conda.yml
+
 conda activate dmcgb
+
 sh setup/install_envs.sh
 
 
 ## Install CARLA
 mkdir carla
+
 tar -xvzf CARLA_0.9.9.4.tar.gz -C carla
+
 cd carla/PythonAPI/carla/dist
+
 easy_install carla-0.9.9-py3.7-linux-x86_64.egg
+
 ln -fs carla/CarlaUE4.sh /usr/local/bin/carla-server
 
 
@@ -33,6 +41,7 @@ pip install robosuite
 
 ## Install DrawerWorld
 cd src/env/drawerworld
+
 pip install -e .
 
 
