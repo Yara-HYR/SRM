@@ -27,7 +27,7 @@ easy_install carla-0.9.9-py3.7-linux-x86_64.egg
 ln -fs carla/CarlaUE4.sh /usr/local/bin/carla-server
 
 
-# Install　Robosuite
+# Install Robosuite
 pip install robosuite
 
 
