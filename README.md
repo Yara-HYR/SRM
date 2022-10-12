@@ -1,2 +1,0 @@
-# SRM
-Spectrum Random Erasing
