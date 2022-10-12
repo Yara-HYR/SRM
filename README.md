@@ -6,20 +6,20 @@ Spectrum Random Erasing
 ## Setup
 We assume that you have access to a GPU with CUDA >=9.2 support. All dependencies can then be installed with the following commands:
 
-# Install MuJoCo
+## Install MuJoCo
 Download the MuJoCo version 2.1 binaries for Linux or OSX.
 Extract the downloaded mujoco210 directory into \~/.mujoco/mujoco210.
 If you want to specify a nonstandard location for the package, use the env variable MUJOCO_PY_MUJOCO_PATH.
 pip3 install -U 'mujoco-py<2.2,>=2.1'
 
 
-# Install DMControl
+## Install DMControl
 conda env create -f setup/conda.yml
 conda activate dmcgb
 sh setup/install_envs.sh
 
 
-# Install CARLA
+## Install CARLA
 mkdir carla
 tar -xvzf CARLA_0.9.9.4.tar.gz -C carla
 cd carla/PythonAPI/carla/dist
@@ -27,11 +27,11 @@ easy_install carla-0.9.9-py3.7-linux-x86_64.egg
 ln -fs carla/CarlaUE4.sh /usr/local/bin/carla-server
 
 
-# Install Robosuite
+## Install Robosuite
 pip install robosuite
 
 
-# Install DrawerWorld
+## Install DrawerWorld
 cd src/env/drawerworld
 pip install -e .
 
@@ -40,7 +40,7 @@ pip install -e .
 
 
 ## Usage
-# DMControl Benchmark
+## DMControl Benchmark
 
 from env.wrappers import make_env
 env = make_env(
@@ -61,7 +61,7 @@ while not done:
 
 
 You can try other environments easily.
-# Carla Benchmark
+## Carla Benchmark
 from env.carla import make_carla
 env = make_carla(
     map_name=args.task_name,
@@ -75,7 +75,7 @@ env = make_carla(
 )
 
 
-# Robosuite Benchmark
+## Robosuite Benchmark
 from env.robosuite import make_robosuite
 env = make_robosuite(
     task=args.task_name,
@@ -83,7 +83,7 @@ env = make_robosuite(
     scene_id=0,
 )
 
-# DrawerWorld Benchmark
+## DrawerWorld Benchmark
 from env.metaworld_wrappers import make_pad_env
 env = make_pad_env(
         domain_name=args.domain_name,
