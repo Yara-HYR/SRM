@@ -52,8 +52,8 @@ pip install -e .
 ## DMControl Benchmark
 
 from env.wrappers import make_env
-env = make_env(\<br>
-        domain_name=args.domain_name,
+env = make_env(  
+        domain_name=args.domain_name,  
         task_name=args.task_name,
         seed=args.seed,
         episode_length=args.episode_length,
