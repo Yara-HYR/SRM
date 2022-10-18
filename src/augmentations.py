@@ -165,39 +165,6 @@ def view_as_windows_cuda(x, window_shape):
 	return x.as_strided(new_shape, strides)
 
 
-# The SRM code, version 1, circle-ring shaped mask
-def random_mask_freq_v1(x):
-        p = random.uniform(0, 1)
-        if p > 0.5:
-             return x
-        # need to adjust r1 r2 and delta for best performance
-        r1=random.uniform(0,0.5)
-        delta_r=random.uniform(0,0.035)
-        r2=np.min((r1+delta_r,0.5))
-        # print(r2)
-        # generate Mask M
-        B,C,H,W = x.shape
-        center = (int(H/2), int(W/2))
-        diagonal_lenth = max(H,W) # np.sqrt(H**2+W**2) is also ok, use a smaller r1
-        r1_pix = diagonal_lenth * r1
-        r2_pix = diagonal_lenth * r2
-        Y_coord, X_coord = np.ogrid[:H, :W]
-        dist_from_center = np.sqrt((Y_coord - center[0])**2 + (X_coord - center[1])**2)
-        M = dist_from_center <= r2_pix
-        M = M * (dist_from_center >= r1_pix)
-        M = ~M
-
-        # mask Fourier spectrum
-        M = torch.from_numpy(M).float().to(x.device)
-        srm_out = torch.zeros_like(x)
-        for i in range(C):
-            x_c = x[:,i,:,:]
-            x_spectrum = torch.fft.fftn(x_c, dim=(-2,-1))
-            x_spectrum = torch.fft.fftshift(x_spectrum, dim=(-2,-1))
-            out_spectrum = x_spectrum * M
-            out_spectrum = torch.fft.ifftshift(out_spectrum, dim=(-2,-1))
-            srm_out[:,i,:,:] = torch.fft.ifftn(out_spectrum, dim=(-2,-1)).float()
-        return srm_out
 
 
 
