@@ -1,5 +1,5 @@
 # SRM
-Spectrum Random Erasing
+Spectrum Random Erasing for Generalization in Image-based Reinforcement Learning
 
 
 
