@@ -120,6 +120,7 @@ MUJOCO_GL='egl' CUDA_VISIBLE_DEVICES=10  python3 src/train.py   --algorithm drq_
 
 If you find this survey useful for your research, please cite the following papers:
 
+```bibtex
 @article{huang2022spectrum,  
   title={Spectrum Random Masking for Generalization in Image-based Reinforcement Learning},  
   author={Huang, Yangru and Peng, Peixi and Zhao, Yifan and Chen, Guangyao and Tian, Yonghong},  
@@ -128,6 +129,6 @@ If you find this survey useful for your research, please cite the following pape
   pages={20393--20406},  
   year={2022}  
 }  
-
+```
 
 
