@@ -112,3 +112,22 @@ env = make_pad_env(
 ## Training
 
 MUJOCO_GL='egl' CUDA_VISIBLE_DEVICES=10  python3 src/train.py   --algorithm drq_aug   --seed 0 --tag SRM  --augmentation random_mask_freq; 
+
+
+
+
+## BibTex:
+
+If you find this survey useful for your research, please cite the following papers:
+
+@article{huang2022spectrum,
+  title={Spectrum Random Masking for Generalization in Image-based Reinforcement Learning},
+  author={Huang, Yangru and Peng, Peixi and Zhao, Yifan and Chen, Guangyao and Tian, Yonghong},
+  journal={Advances in Neural Information Processing Systems},
+  volume={35},
+  pages={20393--20406},
+  year={2022}
+}
+
+
+
